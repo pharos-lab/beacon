@@ -1,8 +1,17 @@
 {
-  "name": "vite-vue-starter",
-  "private": true,
-  "version": "0.0.0",
+  "name": "beacon",
+  "private": false,
+  "version": "0.0.1",
   "type": "module",
+  "files": ["dist"],
+  "main": "./dist/beacon.umd.cjs",
+  "module": "./dist/beacon.js",
+  "exports": {
+    ".": {
+      "import": "./dist/beacon.js",
+      "require": "./dist/beacon.umd.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
