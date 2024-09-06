@@ -20,6 +20,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "chart.js": "^4.4.4",
     "vue": "^3.4.38"
   },
   "devDependencies": {
