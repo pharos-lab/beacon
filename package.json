@@ -3,7 +3,9 @@
   "private": false,
   "version": "0.0.1",
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/beacon.umd.cjs",
   "module": "./dist/beacon.js",
   "exports": {
@@ -22,6 +24,9 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.3",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.45",
+    "tailwindcss": "^3.4.10",
     "vite": "^5.4.2"
   }
 }
