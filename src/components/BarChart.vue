@@ -12,7 +12,6 @@ const props = defineProps({
         required: true
     },
     options: Object,
-    label: String
 
 })
 
@@ -22,15 +21,7 @@ onMounted(() => {
     const chart = new Chart(barChart.value, {
         type: 'bar',
         options: props.options,
-        data: {
-            labels: props.data.map(row => row.label),
-            datasets: [
-            {
-                label: props.label,
-                data: props.data.map(row => row.value)
-            },
-            ]
-        }
+        data: props.data
     })
 })
 </script>
