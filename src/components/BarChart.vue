@@ -12,7 +12,7 @@ const props = defineProps({
         required: true
     },
     options: Object,
-
+    plugins: Object
 })
 
 const barChart = ref()

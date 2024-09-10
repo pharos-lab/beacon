@@ -1,5 +1,5 @@
 <template>
-    <BarChart :data="data" label="test ok"></BarChart>
+    <BarChart :data="data"></BarChart>
 </template>
 
 <script setup>
@@ -16,9 +16,15 @@ const rawData = [
 ]
 const data = {
     labels: rawData.map(row => row.year),
-    datasets: [{
-        label: 'test 1',
-        data: rawData.map(row => row.count)},
+    datasets: [
+        {
+            label: 'test 1',
+            data: rawData.map(row => row.count)
+        },
+        {
+            label: 'test 1',
+            data: rawData.map(row => row.count)
+        },
     ]
 }
 </script>
