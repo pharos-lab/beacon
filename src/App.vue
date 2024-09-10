@@ -5,29 +5,20 @@
 <script setup>
 import BarChart from './components/BarChart.vue';
 
-const data = [{
-    labels: ['a','b','c','d','e','f','g'],
+const rawData = [
+    { year: 2010, count: 10 },
+    { year: 2011, count: 20 },
+    { year: 2012, count: 60 },
+    { year: 2013, count: 40 },
+    { year: 2014, count: 80 },
+    { year: 2015, count: 10 },
+    { year: 2016, count: 90 },
+]
+const data = {
+    labels: rawData.map(row => row.year),
     datasets: [{
         label: 'test 1',
-        data: [
-        { label: 2010, value: 10 },
-        { label: 2011, value: 20 },
-        { label: 2012, value: 15 },
-        { label: 2013, value: 25 },
-        { label: 2014, value: 22 },
-        { label: 2015, value: 30 },
-        { label: 2016, value: 28 },
-    ]},{
-        label : 'test 2',
-        data: [
-            { label: 2010, value: 10 },
-            { label: 2011, value: 20 },
-            { label: 2012, value: 15 },
-            { label: 2013, value: 25 },
-            { label: 2014, value: 22 },
-            { label: 2015, value: 30 },
-            { label: 2016, value: 28 },
-        ]
-    }]
-    }]
+        data: rawData.map(row => row.count)},
+    ]
+}
 </script>
