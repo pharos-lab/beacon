@@ -1,5 +1,5 @@
 <template>
-    <Chart :data="data" :options="options" type="line" :grid="true"></Chart>
+    <Chart :data="data" :options="options" type="line" :ticks="false"></Chart>
 </template>
 
 <script setup>
@@ -38,7 +38,8 @@ const options = {
     },
     scales: {
         x: {
-            display: false,
+            //display: false,
+            //ticks: false
         },
         y: {
             grid: {
