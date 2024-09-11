@@ -1,10 +1,8 @@
 <template>
-    <Chart :data="data" :options="options" type="line"></Chart>
+    <Chart :data="data" :options="options" type="line" :legend="true"></Chart>
 </template>
 
 <script setup>
-import BarChart from './components/BarChart.vue';
-import AreaChart from './components/AreaChart.vue'
 import Chart from './components/Chart.vue'
 
 const rawData = [
@@ -35,7 +33,7 @@ const data = {
 const options = {
     plugins: {
         legend: {
-            display: false,
+            //display: false,
         }
     },
     scales: {
