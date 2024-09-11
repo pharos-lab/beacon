@@ -1,5 +1,5 @@
 <template>
-    <Chart :data="data" :options="options" type="line" :legend="false" :grid="true"></Chart>
+    <Chart :data="data" :options="options" type="line" :grid="true"></Chart>
 </template>
 
 <script setup>
@@ -33,7 +33,7 @@ const data = {
 const options = {
     plugins: {
         legend: {
-            //display: false,
+            display: false,
         }
     },
     scales: {

@@ -25,7 +25,7 @@ const props = defineProps({
     },
     legend: {
         type: Boolean,
-        default: true
+        default: null
     },
     grid: {
         type: Boolean,
@@ -35,13 +35,19 @@ const props = defineProps({
 
 const charts = ref()
 
-const legend = {
-    plugins: {
-        legend: {
-            display: props.legend
+const legend = computed(() => {
+    if (props.grid == null) {
+        return 
+    } else {
+        return {
+            plugins: {
+                legend: {
+                    display: props.legend
+                }
+            }
         }
     }
-}
+})
 
 const grid = computed(() => {
     if (props.grid == null) {
@@ -65,10 +71,10 @@ const grid = computed(() => {
 })
 
 onMounted(() => {
-    console.log(_merge(props.options, legend, grid.value))
+    console.log(_merge(props.options, legend.value, grid.value))
    const chart = new Chart(charts.value, {
        type: props.type,
-       options: _merge(props.options, legend, grid.value),
+       options: _merge(props.options, legend.value, grid.value),
        data: props.data,
        plugins: props.plugins
    })
