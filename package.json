@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "chart.js": "^4.4.4",
+    "lodash": "^4.17.21",
     "vue": "^3.4.38"
   },
   "devDependencies": {
