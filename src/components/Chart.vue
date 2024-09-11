@@ -12,16 +12,23 @@ const props = defineProps({
        required: true
    },
    options: Object,
-   plugins: Object
+   plugins: Object,
+   type: {
+    type: String,
+    validator(value, props) {
+        return ['bar', 'bubble', 'doughnut', 'pie', 'line', 'polar', 'radar', 'scatter'].includes(value)
+    }
+   }
 })
 
 const charts = ref()
 
 onMounted(() => {
    const chart = new Chart(charts.value, {
-       type: 'line',
+       type: props.type,
        options: props.options,
-       data: props.data
+       data: props.data,
+       plugins: props.plugins
    })
 })
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <Chart :data="data" :options="options"></Chart>
+    <Chart :data="data" :options="options" type="line"></Chart>
 </template>
 
 <script setup>
@@ -20,12 +20,14 @@ const data = {
     labels: rawData.map(row => row.year),
     datasets: [
         {
+            fill: 'origin',
             label: 'test 1',
             data: rawData.map(row => row.count)
         },
         {
+            fill: '',
             label: 'test 1',
-            data: rawData.map(row => row.count)
+            data: rawData.map(row => row.count * 2 -8)
         },
     ]
 }
