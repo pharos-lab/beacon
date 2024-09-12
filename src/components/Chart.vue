@@ -23,19 +23,10 @@ const props = defineProps({
             return ['bar', 'bubble', 'doughnut', 'pie', 'line', 'polar', 'radar', 'scatter'].includes(value)
         }
     },
-    noLegend: {
-        type: Boolean,
-        default: null
-    },
-    noGrid: {
-        type: Boolean,
-        default: null
-    },
-    noTicks: {
-        type: Boolean,
-        default: null
-    },
-
+    noLegend: Boolean,
+    noGrid: Boolean,
+    noTicks: Boolean,
+    blank: Boolean
 })
 
 const charts = ref()
@@ -76,7 +67,6 @@ const ticks = computed(() => {
         return {
             scales: {
                 x: {
-
                     ticks: {
                         display: false
                     }
@@ -91,10 +81,36 @@ const ticks = computed(() => {
     } 
 })
 
+const blank = computed(() => {
+    if (props.blank == true) {
+        return {
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                x: {
+                    display: false,
+                    grid: {
+                        display: false
+                    }
+                },
+                y: {
+                    display: false,
+                    grid: {
+                        display: false
+                    }
+                }
+            }
+        }
+    } 
+})
+
 onMounted(() => {
     const chart = new Chart(charts.value, {
         type: props.type,
-        options: _merge(props.options, legend.value, grid.value, ticks.value),
+        options: _merge(props.options, legend.value, grid.value, ticks.value, blank.value),
         data: props.data,
         plugins: props.plugins
     })
