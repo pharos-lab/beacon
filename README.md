@@ -1,5 +1,171 @@
-# Vue 3 + Vite
+<!--
+*** Thanks for checking out this README Template. If you have a suggestion that would
+*** make this better please fork the repo and create a pull request or simple open
+*** an issue with the tag "enhancement".
+*** Thanks again! Now go create something AMAZING! :D
+-->
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+<!-- PROJECT LOGO -->
+<br />
+<p align="center"><h3 align="center">Beacon</h3>
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+  <p align="center">
+    Easily put beautiful <strong>charts</strong> to your <strong>Vue<strong> application
+    <br />
+    ·
+    <a href="https://github.com/pharos-lab/beacon/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/pharos-lab/beacon/issues">Request Feature</a>
+  </p>
+</p>
+
+<!-- TABLE OF CONTENTS -->
+
+## Table of Contents
+
+- [Table of Contents](#Table-of-Contents)
+- [About The Project](#About-The-Project)
+- [Getting Started](#Getting-Started)
+  - [Prerequisites](#Prerequisites)
+  - [Installation](#Installation)
+- [Usage](#Usage)
+  - [Examples](#Examples)
+- [Contributing](#Contributing)
+- [License](#License)
+- [Contact](#Contact)
+
+## About The Project
+
+![DEMO PHOTO]()
+
+Beacon let you use the power of <strong>ChartJs</strong> within you Vue application by providing a wrapper component for fast and easy experience
+
+<!-- GETTING STARTED -->
+
+## Getting Started
+
+### Prerequisites
+
+- npm
+
+```sh
+npm install npm@latest -g
+```
+
+### Installation
+
+1. Install NPM packages
+
+```sh
+npm install @pharos-labo/beacon
+```
+
+<!-- USAGE EXAMPLES -->
+
+## Usage
+
+To use **beacon**, just import the plugin from the package and tell vue to use it!
+
+```javascript
+
+// main.js
+
+import { createApp } from 'vue';
+import { lantern } from '@pharos-labo/beacon'
+
+import App from './App.vue';
+
+const application = createApp(app);
+
+application.use(beacon);
+application.mount('#app');
+```
+
+Now You can use all the features of **beacon**!
+
+The **beacon** plugin made the registration of the `Chart` so you don't have to import it and can start using them directly.
+
+```javascript
+<template>
+    <Chart :data="charData"></Chart>
+</template>
+```
+
+> The `data` prop is required and has to follow the **ChartJs docs** data structure to work.
+
+
+
+### Props
+
+#### Type
+
+The `type` prop sets the type of chart you will display ('line', 'bar', ...)
+
+Here's the following choice: 
+
+- line
+- bar
+- bubble
+- doughnut
+- pie
+- line
+- polar
+- radar
+- scatter
+
+```javascript
+<template>
+    <Chart type="bubble" :data="charData"></Chart>
+</template>
+```
+
+> the `line` chart type is the one selected by default
+
+### options
+The options prop is the options configuration for the ChartJs library, so you can configure how the chart will display (animations, colors, font, ...)
+
+The ChartJs docs will give you all the informations you need
+
+
+```javascript
+<template>
+    <Chart :options="options" :data="charData"></Chart>
+</template>
+
+<script setup>
+    const options = {
+        plugins: {
+            legend: {
+                display: false
+            }
+        }
+    }
+```
+
+> This example will hide the legend for the chart
+
+<!-- CONTRIBUTING -->
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<!-- LICENSE -->
+
+## License
+
+Distributed under the MIT License.
+
+<!-- CONTACT -->
+
+## Contact
+
+pharos-lab - [@pharos-lab](https://twitter.com/pharos-lab) - pharos-lab@gmail.com
+
+Project Link: [https://github.com/pharos-lab/beacon](https://github.com/pharos-lab/beacon)

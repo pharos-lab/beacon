@@ -1,6 +1,5 @@
 <template>
     <div>
-
         <Chart :data="data" :options="options" type="line" blank></Chart>
     </div>
 </template>
