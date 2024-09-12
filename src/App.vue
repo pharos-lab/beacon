@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import Chart from './components/Chart.vue'
+//import Chart from './components/Chart.vue'
 
 const rawData = [
     { year: 2010, count: 10 },

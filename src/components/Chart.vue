@@ -35,7 +35,7 @@ const props = defineProps({
         type: Boolean,
         default: null
     },
-    
+
 })
 
 const charts = ref()
@@ -92,7 +92,6 @@ const ticks = computed(() => {
 })
 
 onMounted(() => {
-    console.log(_merge(props.options, legend.value, grid.value))
     const chart = new Chart(charts.value, {
         type: props.type,
         options: _merge(props.options, legend.value, grid.value, ticks.value),
