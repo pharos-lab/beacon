@@ -31,6 +31,9 @@ const props = defineProps({
 })
 
 const charts = ref()
+const chart = ref()
+
+defineExpose({chart})
 
 const finalOptions = computed(() => {
     const legend = props.noLegend == true ? noLegend : null
@@ -41,7 +44,7 @@ const finalOptions = computed(() => {
 })
 
 onMounted(() => {
-    const chart = new Chart(charts.value, {
+    chart.value = new Chart(charts.value, {
         type: props.type,
         options: finalOptions,
         data: props.data,

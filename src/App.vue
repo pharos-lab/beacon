@@ -1,13 +1,18 @@
 <template>
     <div>
-        <Chart :data="dataStructure" :options="options" type="bar"></Chart>
+        <Chart ref="chart" :data="data" :options="options" type="bar"></Chart>
     </div>
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
 import Chart from './components/Chart.vue'
 //import { Chart } from '../dist/beacon.js'
+const chart = ref()
 
+onMounted(() => {
+    console.log(chart.value.chart.data.labels)
+})
 const rawData = [
     { year: 2010, count: 10 },
     { year: 2011, count: 20 },
