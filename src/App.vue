@@ -1,12 +1,12 @@
 <template>
     <div>
-        <Chart :data="dataStructure" options="options" type="bar"></Chart>
+        <Chart :data="dataStructure" :options="options" type="bar"></Chart>
     </div>
 </template>
 
 <script setup>
-//import Chart from './components/Chart.vue'
-import { Chart } from '../dist/beacon.js'
+import Chart from './components/Chart.vue'
+//import { Chart } from '../dist/beacon.js'
 
 const rawData = [
     { year: 2010, count: 10 },

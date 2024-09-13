@@ -6,6 +6,7 @@
 import { ref, onMounted, computed } from 'vue'
 import Chart from 'chart.js/auto';
 import _merge from 'lodash/merge'
+import { noLegend, noGrid, noTicks, isBlank } from './utils.js'
 
 const props = defineProps({
     data: {
@@ -31,86 +32,18 @@ const props = defineProps({
 
 const charts = ref()
 
-const legend = computed(() => {
-    if (props.noLegend == true) {
-        return {
-            plugins: {
-                legend: {
-                    display: false
-                }
-            }
-        }
-    }
-})
-
-const grid = computed(() => {
-    if (props.noGrid == true) {
-        return {
-            scales: {
-                x: {
-                    grid: {
-                        display: false
-                    },
-                },
-                y: {
-                    grid: {
-                        display: false
-                    },
-                }
-            }
-        }
-    } 
-})
-
-const ticks = computed(() => {
-    if (props.noTicks == true) {
-        return {
-            scales: {
-                x: {
-                    ticks: {
-                        display: false
-                    }
-                },
-                y: {
-                    ticks: {
-                        display: false
-                    }
-                }
-            }
-        }
-    } 
-})
-
-const blank = computed(() => {
-    if (props.blank == true) {
-        return {
-            plugins: {
-                legend: {
-                    display: false
-                }
-            },
-            scales: {
-                x: {
-                    display: false,
-                    grid: {
-                        display: false
-                    }
-                },
-                y: {
-                    display: false,
-                    grid: {
-                        display: false
-                    }
-                }
-            }
-        }
-    } 
+const finalOptions = computed(() => {
+    const legend = props.noLegend == true ? noLegend : null
+    const grid = props.noGrid == true ? noGrid: null
+    const ticks = props.noTicks == true ? noTicks : null
+    const blank = props.blank == true ? isBlank : null
+    return _merge(props.options, legend, grid, ticks, blank)
 })
 
 onMounted(() => {
     const chart = new Chart(charts.value, {
         type: props.type,
-        options: _merge(props.options, legend.value, grid.value, ticks.value, blank.value),
+        options: finalOptions,
         data: props.data,
         plugins: props.plugins
     })
