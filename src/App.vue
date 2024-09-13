@@ -1,11 +1,12 @@
 <template>
     <div>
-        <Chart :data="data" :options="options" type="line" blank></Chart>
+        <Chart :data="dataStructure" options="options" type="bar"></Chart>
     </div>
 </template>
 
 <script setup>
-import Chart from './components/Chart.vue'
+//import Chart from './components/Chart.vue'
+import { Chart } from '../dist/beacon.js'
 
 const rawData = [
     { year: 2010, count: 10 },
@@ -31,6 +32,20 @@ const data = {
         },
     ]
 }
+
+const dataStructure = {
+    labels: ['January', 'February', 'March'],
+    datasets: [
+      {
+        label: 'number of sales',
+        data: [58, 27, 87]
+      },
+      {
+        label: 'number of buys',
+        data: [85, 36, 24]
+      },
+    ]
+  }
 
 const options = {
     plugins: {

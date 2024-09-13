@@ -10,7 +10,7 @@
 <p align="center"><h3 align="center">Beacon</h3>
 
   <p align="center">
-    Easily put beautiful <strong>charts</strong> to your <strong>Vue<strong> application
+    Easily put beautiful <strong>charts</strong> and <strong>graphics</strong> to your <strong>Vue<strong> application
     <br />
     ·
     <a href="https://github.com/pharos-lab/beacon/issues">Report Bug</a>
@@ -38,7 +38,7 @@
 
 ![DEMO PHOTO]()
 
-Beacon let you use the power of <strong>ChartJs</strong> within you Vue application by providing a wrapper component for fast and easy experience
+Beacon let you use the power of <strong>[ChartJs]()</strong> within you Vue application by providing a wrapper component for fast and easy experience
 
 <!-- GETTING STARTED -->
 
@@ -64,14 +64,30 @@ npm install @pharos-labo/beacon
 
 ## Usage
 
-To use **beacon**, just import the plugin from the package and tell vue to use it!
+### Simple import
+
+Just import the `Chart` component and use it in your template
+
+```javascript
+<script setup>
+  import { Chart } from '@pharos-lab/beacon'
+</script>
+
+<template>
+    <Chart :data="charData"></Chart>
+</template>
+```
+
+### Beacon plugin
+
+To use the **beacon** plugin, just import the plugin from the package and tell vue to use it!
 
 ```javascript
 
 // main.js
 
 import { createApp } from 'vue';
-import { lantern } from '@pharos-labo/beacon'
+import { beacon } from '@pharos-labo/beacon'
 
 import App from './App.vue';
 
@@ -83,7 +99,7 @@ application.mount('#app');
 
 Now You can use all the features of **beacon**!
 
-The **beacon** plugin made the registration of the `Chart` so you don't have to import it and can start using them directly.
+The **beacon** plugin made the registration of the `Chart` component so you don't have to import it and can start using them directly.
 
 ```javascript
 <template>
@@ -91,13 +107,64 @@ The **beacon** plugin made the registration of the `Chart` so you don't have to 
 </template>
 ```
 
-> The `data` prop is required and has to follow the **ChartJs docs** data structure to work.
+## Props
+
+### data
+
+**Beacon** is a wrapper for the [ChartJs]() library so you must check out the [ChartJs data structure]() you need to provide
+
+Basically, it's an object with `labels` and `datasets` property
+
+```javascript
+<template>
+    <Chart :data="dataStructure"></Chart>
+</template>
+
+<script setup>
+  const dataStructure = {
+    labels: ['January', 'February', 'March'],
+    datasets: [
+      {
+        label: 'number of sales',
+        data: [58, 27, 87]
+      },
+    ]
+  }
+```
+
+This should display a chart like this one:
+
+![photo]()
+
+> You can display multiple sets of data in the `datasets` property
 
 
+```javascript
+<template>
+    <Chart :data="dataStructure"></Chart>
+</template>
 
-### Props
+<script setup>
+  const dataStructure = {
+    labels: ['January', 'February', 'March'],
+    datasets: [
+      {
+        label: 'number of sales',
+        data: [58, 27, 87]
+      },
+      {
+        label: 'number of buys',
+        data: [85, 36, 24]
+      },
+    ]
+  }
+```
 
-#### Type
+This should display a chart like this one:
+
+![photo]()
+
+### Type prop
 
 The `type` prop sets the type of chart you will display ('line', 'bar', ...)
 
@@ -121,10 +188,8 @@ Here's the following choice:
 
 > the `line` chart type is the one selected by default
 
-### options
-The options prop is the options configuration for the ChartJs library, so you can configure how the chart will display (animations, colors, font, ...)
-
-The ChartJs docs will give you all the informations you need
+### options prop
+The options prop is the options configuration for the [ChartJs]() library, so you can configure how the chart will display (animations, colors, font, ...)
 
 
 ```javascript
@@ -140,9 +205,76 @@ The ChartJs docs will give you all the informations you need
             }
         }
     }
+</script>
 ```
 
 > This example will hide the legend for the chart
+
+### noLegend, noGrid, noTicks, and blank props
+
+In the `options` prop you can customize you chart as you want following the [ChartJs configuration docs]().
+
+**Beacon** offers you some props to quicly change some display of your charts.
+
+### Legend
+
+The `no-legend` prop remove the legend for your datasets
+
+```javascript
+<template>
+    <Chart :data="data" no-legend></Chart>
+</template>
+```
+
+This should display a chart like this one:
+
+![photo]()
+
+### grid
+
+The `no-grid` prop remove all the grids, vertically **and** horizontally
+
+```javascript
+<template>
+    <Chart :data="data" no-grid></Chart>
+</template>
+```
+
+This should display a chart like this one:
+
+![photo]()
+
+
+### Ticks
+
+The `no-ticks` prop remove the labels for X-axis and Y-Axis
+
+```javascript
+<template>
+    <Chart :data="data" no-ticks></Chart>
+</template>
+```
+
+This should display a chart like this one:
+
+![photo]()
+
+
+### blank
+
+The `blank` prop remove the legend, the grids and the ticks.
+
+It can be usefull for displaying a Chart in a card for example
+
+```javascript
+<template>
+    <Chart :data="data" blank></Chart>
+</template>
+```
+
+This should display a chart like this one:
+
+![photo]()
 
 <!-- CONTRIBUTING -->
 

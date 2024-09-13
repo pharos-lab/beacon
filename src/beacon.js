@@ -6,4 +6,4 @@ const beacon = {
   },
 };
 
-export { beacon };
+export { beacon, Chart };
