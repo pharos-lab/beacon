@@ -56,6 +56,26 @@ const noTicks = {
     }
 }
 
+const noTicksX = {
+    scales: {
+        x: {
+            ticks: {
+                display: false
+            }
+        },
+    }
+}
+
+const noTicksY = {
+    scales: {
+        y: {
+            ticks: {
+                display: false
+            }
+        }
+    }
+}
+
 const isBlank =  {
     plugins: {
         legend: {
@@ -78,4 +98,4 @@ const isBlank =  {
     }
 }
     
-export {noLegend, noGrid, noGridX, noGridY, noTicks, isBlank }
+export {noLegend, noGrid, noGridX, noGridY, noTicks, noTicksX, noTicksY, isBlank }

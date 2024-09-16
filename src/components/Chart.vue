@@ -6,7 +6,7 @@
 import { ref, onMounted, computed } from 'vue'
 import Chart from 'chart.js/auto';
 import _merge from 'lodash/merge'
-import { noLegend, noGrid, noTicks, isBlank, noGridX, noGridY } from './utils.js'
+import { noLegend, noGrid, noTicks, isBlank, noGridX, noGridY, noTicksX, noTicksY } from './utils.js'
 
 const props = defineProps({
     data: {
@@ -29,6 +29,8 @@ const props = defineProps({
     noGridX: Boolean,
     noGridY: Boolean,
     noTicks: Boolean,
+    noTicksX: Boolean,
+    noTicksY: Boolean,
     blank: Boolean
 })
 
@@ -43,8 +45,10 @@ const finalOptions = computed(() => {
     const gridX = props.noGridX == true ? noGridX: null
     const gridY = props.noGridY == true ? noGridY: null
     const ticks = props.noTicks == true ? noTicks : null
+    const ticksX = props.noTicksX == true ? noTicksX : null
+    const ticksY = props.noTicksY == true ? noTicksY : null
     const blank = props.blank == true ? isBlank : null
-    return _merge(props.options, legend, grid, gridX, gridY, ticks, blank)
+    return _merge(props.options, legend, grid, gridX, gridY, ticks, ticksX, ticksY, blank)
 })
 
 onMounted(() => {
