@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Chart ref="chart" :data="data" :options="options" type="bar"></Chart>
+        <Chart ref="chart" :data="data" type="bar" no-grid></Chart>
     </div>
 </template>
 
@@ -11,7 +11,7 @@ import Chart from './components/Chart.vue'
 const chart = ref()
 
 onMounted(() => {
-    console.log(chart.value.chart.data.labels)
+    console.log(chart.value.chart)
 })
 const rawData = [
     { year: 2010, count: 10 },

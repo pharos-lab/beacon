@@ -21,6 +21,26 @@ const noGrid = {
     }
 }
 
+const noGridX = {  
+    scales: {
+        x: {
+            grid: {
+                display: false
+            },
+        },
+    }
+}
+
+const noGridY = {  
+    scales: {
+        y: {
+            grid: {
+                display: false
+            },
+        }
+    }
+}
+
 const noTicks = {
     scales: {
         x: {
@@ -58,4 +78,4 @@ const isBlank =  {
     }
 }
     
-export {noLegend, noGrid, noTicks, isBlank }
+export {noLegend, noGrid, noGridX, noGridY, noTicks, isBlank }
