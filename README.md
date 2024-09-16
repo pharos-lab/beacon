@@ -29,7 +29,6 @@
   - [Prerequisites](#Prerequisites)
   - [Installation](#Installation)
 - [Usage](#Usage)
-  - [Examples](#Examples)
 - [Contributing](#Contributing)
 - [License](#License)
 - [Contact](#Contact)
@@ -230,13 +229,37 @@ This should display a chart like this one:
 
 ![photo]()
 
-### grid
+### grid, gridX and gridY
 
 The `no-grid` prop remove all the grids, vertically **and** horizontally
 
 ```javascript
 <template>
     <Chart :data="data" no-grid></Chart>
+</template>
+```
+
+This should display a chart like this one:
+
+![photo]()
+
+The `no-grid-x` prop remove all the grids, vertically **and** horizontally
+
+```javascript
+<template>
+    <Chart :data="data" no-grid-x></Chart>
+</template>
+```
+
+This should display a chart like this one:
+
+![photo]()
+
+The `no-grid-y` prop remove all the grids, vertically **and** horizontally
+
+```javascript
+<template>
+    <Chart :data="data" no-grid-y></Chart>
 </template>
 ```
 
