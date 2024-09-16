@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Chart ref="chart" :data="data" type="bar" no-grid></Chart>
+        <Chart ref="chart" :data="data" :options="options" type="bar" no-grid></Chart>
     </div>
 </template>
 
@@ -55,7 +55,7 @@ const dataStructure = {
 const options = {
     plugins: {
         legend: {
-            display: true,
+            display: false,
         }
     },
     scales: {
