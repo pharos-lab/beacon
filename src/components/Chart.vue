@@ -6,7 +6,7 @@
 import { ref, onMounted, computed } from 'vue'
 import Chart from 'chart.js/auto';
 import _merge from 'lodash/merge'
-import { noLegend, noGrid, noTicks, isBlank, noGridX, noGridY, noTicksX, noTicksY } from './utils.js'
+import { noLegend, noGrid, noTicks, isBlank, noGridX, noGridY, noTicksX, noTicksY, noRadialGrid, noRadialTicks } from './utils.js'
 
 const props = defineProps({
     data: {
@@ -40,14 +40,20 @@ const chart = ref()
 //defineExpose({chart})
 
 const finalOptions = computed(() => {
-    const legend = props.noLegend == true ? noLegend : null
-    const grid = props.noGrid == true ? noGrid: null
-    const gridX = props.noGridX == true ? noGridX: null
-    const gridY = props.noGridY == true ? noGridY: null
-    const ticks = props.noTicks == true ? noTicks : null
-    const ticksX = props.noTicksX == true ? noTicksX : null
-    const ticksY = props.noTicksY == true ? noTicksY : null
-    const blank = props.blank == true ? isBlank : null
+    let legend = props.noLegend == true ? noLegend : null
+    let grid = props.noGrid == true ? noGrid: null
+    let gridX = props.noGridX == true ? noGridX: null
+    let gridY = props.noGridY == true ? noGridY: null
+    let ticks = props.noTicks == true ? noTicks : null
+    let ticksX = props.noTicksX == true ? noTicksX : null
+    let ticksY = props.noTicksY == true ? noTicksY : null
+    let blank = props.blank == true ? isBlank : null
+    if ((props.type == "radar" || props.type == "polar" ) && props.noGrid == true) {
+        grid = noRadialGrid
+    }
+    if ((props.type == "radar" || props.type == "polar" ) && props.noTicks == true) {
+        ticks = noRadialTicks
+    }
     return _merge(props.options, legend, grid, gridX, gridY, ticks, ticksX, ticksY, blank)
 })
 

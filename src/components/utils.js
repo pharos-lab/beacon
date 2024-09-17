@@ -1,3 +1,5 @@
+import { scales } from "chart.js"
+
 const noLegend = {
     plugins: {
         legend: {
@@ -17,6 +19,16 @@ const noGrid = {
             grid: {
                 display: false
             },
+        },
+    }
+}
+
+const noRadialGrid = {
+    scales: {
+        r: {
+            grid: {
+                display: false
+            }
         }
     }
 }
@@ -50,6 +62,19 @@ const noTicks = {
         },
         y: {
             ticks: {
+                display: false
+            }
+        }
+    }
+}
+
+const noRadialTicks = {
+    scales: {
+        r: {
+            ticks: {
+                display: false
+            },
+            pointLabels: {
                 display: false
             }
         }
@@ -98,4 +123,4 @@ const isBlank =  {
     }
 }
     
-export {noLegend, noGrid, noGridX, noGridY, noTicks, noTicksX, noTicksY, isBlank }
+export {noLegend, noGrid, noGridX, noGridY, noRadialGrid, noTicks, noTicksX, noTicksY, noRadialTicks, isBlank }
