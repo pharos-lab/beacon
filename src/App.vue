@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Chart ref="chart" :data="data" type="radar" no-ticks no-grid></Chart>
+        <Chart ref="chart" :data="data" type="radar" no-ticks no-legend no-tooltip></Chart>
     </div>
 </template>
 

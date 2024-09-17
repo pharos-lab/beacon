@@ -123,4 +123,11 @@ const isBlank =  {
     }
 }
     
-export {noLegend, noGrid, noGridX, noGridY, noRadialGrid, noTicks, noTicksX, noTicksY, noRadialTicks, isBlank }
+const noTooltip = {
+    plugins: {
+        tooltip: {
+            enabled: false
+        }
+    }
+}
+export {noLegend, noGrid, noGridX, noGridY, noRadialGrid, noTicks, noTicksX, noTicksY, noRadialTicks, isBlank, noTooltip }
