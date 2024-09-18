@@ -77,6 +77,7 @@ Just import the `Chart` component and use it in your template
 </template>
 ```
 
+<!-- 
 ### Beacon plugin
 
 To use the **beacon** plugin, just import the plugin from the package and tell vue to use it!
@@ -106,11 +107,12 @@ The **beacon** plugin made the registration of the `Chart` component so you don'
 </template>
 ```
 
+-->
 ## Props
 
 ### data
 
-**Beacon** is a wrapper for the [ChartJs]() library so you must check out the [ChartJs data structure]() you need to provide
+**Beacon** is a wrapper for the [ChartJs](https://www.chartjs.org/) library so you must check out the [ChartJs data structure](https://www.chartjs.org/docs/latest/general/data-structures.html) you need to provide
 
 Basically, it's an object with `labels` and `datasets` property
 
@@ -188,7 +190,7 @@ Here's the following choice:
 > the `line` chart type is the one selected by default
 
 ### options prop
-The options prop is the options configuration for the [ChartJs]() library, so you can configure how the chart will display (animations, colors, font, ...)
+The options prop is the options configuration for the [ChartJs](https://www.chartjs.org/docs/latest/configuration/) library, so you can configure how the chart will display (animations, colors, font, ...)
 
 
 ```javascript
@@ -209,9 +211,9 @@ The options prop is the options configuration for the [ChartJs]() library, so yo
 
 > This example will hide the legend for the chart
 
-### noLegend, noGrid, noTicks, and blank props
+### noLegend, noGrid, noTicks, noTooltip and blank props
 
-In the `options` prop you can customize you chart as you want following the [ChartJs configuration docs]().
+In the `options` prop you can customize you chart as you want following the [ChartJs configuration docs](https://www.chartjs.org/docs/latest/configuration/).
 
 **Beacon** offers you some props to quicly change some display of your charts.
 
@@ -229,7 +231,7 @@ This should display a chart like this one:
 
 ![photo]()
 
-### grid, gridX and gridY
+### Grids
 
 The `no-grid` prop remove all the grids, vertically **and** horizontally
 
@@ -282,6 +284,30 @@ This should display a chart like this one:
 
 ![photo]()
 
+The `no-ticks-x` prop remove the labels for X-axis
+
+```javascript
+<template>
+    <Chart :data="data" no-ticks-x></Chart>
+</template>
+```
+
+This should display a chart like this one:
+
+![photo]()
+
+The `no-ticks-y` prop remove the labels for Y-Axis
+
+```javascript
+<template>
+    <Chart :data="data" no-ticks-y></Chart>
+</template>
+```
+
+This should display a chart like this one:
+
+![photo]()
+
 
 ### blank
 
@@ -292,6 +318,20 @@ It can be usefull for displaying a Chart in a card for example
 ```javascript
 <template>
     <Chart :data="data" blank></Chart>
+</template>
+```
+
+This should display a chart like this one:
+
+![photo]()
+
+### Tooltip
+
+The `no-tooltip` prop remove the tooltip when hovering data chart
+
+```javascript
+<template>
+    <Chart :data="data" no-tooltip></Chart>
 </template>
 ```
 
